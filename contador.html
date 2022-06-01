@@ -1,0 +1,115 @@
+<!--Projecto 1 picina level-up Autor Mario Pacheco-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contador</title>
+
+	<!--Codigo css, diseño de la vista-->
+	<style type="text/css">
+
+		h1{
+			text-align: center;
+			font-size: 45px;
+			text-shadow: 0 1px white;
+		}
+
+		section{
+			text-align: center;
+			margin: auto;
+			padding: 350px 0;
+			transition: all .5s;
+		}
+
+		#contarClick{
+			font-size: 85px;
+			font-weight: 800;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			margin: 20px auto;
+			background-color: aliceblue;
+			width: fit-content;
+			padding: 15px 40px;
+			border-radius: 50%;
+		}
+
+	</style>
+</head>
+
+<body>
+	<!--Seccion del contador-->
+	<section id="sect">
+		<div class="mid1">
+			<div>
+				<h1>Contador</h1>
+			</div>
+			<!--botones del contador-->
+			<button id="btnClick">Aumenta</button>
+			<button id="btnRest">Disminuir</button>
+			<button id="btnClear">Resetear</button>
+
+			<!--Vista de los numeros del contador-->
+			<p id="contarClick" style="color: #0A18F2"></p>
+		</div>
+	</section>
+
+	<!--Funcionamiento del contador-->
+	<script type="text/javascript">
+
+		//variables para los elementos html y javascript
+		var btnElm = document.getElementById('btnClick'),
+		btnRest = document.getElementById('btnRest'),
+		btnClear = document.getElementById('btnClear'),
+		pElm = document.getElementById('contarClick'),
+		sect = document.getElementById('sect'),
+
+		//variables para el conteo con valor inicial 0
+		contar = 0;
+		pElm.textContent = 0;
+
+		//funcion boton incrementar
+		btnElm.onclick = function(){
+			contar++;
+			pElm.textContent = contar;
+
+			//condicional para identificar numeros positivos, negativos y numero 0
+			if (contar <= -1) {
+				document.getElementById('contarClick').style.color = "#FF0000";
+			}
+
+			else if(contar >= 1){
+				document.getElementById('contarClick').style.color = "#0FDF1F";
+			}
+
+			else{
+				document.getElementById('contarClick').style.color = "#0A18F2";
+			}
+		}
+
+		//funcion boton disminuir
+		btnRest.onclick = function(){
+			contar--;
+			pElm.textContent = contar;
+
+			//condicional para identificar numeros positivos, negativos y numero 0
+			if (contar <= -1) {
+				document.getElementById('contarClick').style.color = "#FF0000";
+			}
+
+			else if(contar >= 1){
+				document.getElementById('contarClick').style.color = "#0FDF1F";
+			}
+
+			else{
+				document.getElementById('contarClick').style.color = "#0A18F2";
+			}
+		}
+
+		//funcion boton resetear el contador
+		btnClear.onclick = function(){
+			pElm.textContent = 0;
+			contar = 0;
+			document.getElementById('contarClick').style.color = "#0A18F2";
+		}
+
+	</script>
+</body>
+</html>
